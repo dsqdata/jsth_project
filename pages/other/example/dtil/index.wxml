@@ -1,0 +1,7 @@
+<view class='bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>{{name}}</view>
+  <view class='text-content'>
+    <view>{{desc}}</view>
+    <image src="{{url}}" mode="widthFix" style="width: 100%;margin-top: 40rpx;"></image>
+  </view>
+</view>

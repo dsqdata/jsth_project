@@ -1,0 +1,75 @@
+{
+  "pages": [
+    
+    "pages/home/index/index",
+    "pages/other/zsfx/index",
+    "pages/other/zsfx/add/index",
+    "pages/other/example/add/index",
+    "pages/home/index/dtl/index",
+    "pages/home/index/list/index",
+    "pages/home/tools/index",
+    "pages/other/example/list/index",
+    "pages/other/userinfo/index",
+    "pages/other/action/list/index",
+    "pages/other/action/dtil/index",
+    "pages/index/index",
+    "pages/home/find/index",
+    "pages/home/plan/view/index",
+    "pages/home/plan/list/index",
+    "pages/home/plan/add/index",
+    "pages/home/user/index",
+    "pages/tools/bmr/index",
+    "pages/tools/bmi/index",
+    "pages/tools/pro/index",
+    "pages/tools/ehr/index",
+    "pages/about/index",
+    "pages/demo/logs/logs"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#05a6f0",
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "健身团钬",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#479de6",
+    "borderStyle": "white",
+    "backgroundColor": "#f7f8f9",
+    "list": [
+      {
+        "pagePath": "pages/home/index/index",
+        "iconPath": "assets/images/iconfont-home.png",
+        "selectedIconPath": "assets/images/iconfont-home-active.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/home/tools/index",
+        "iconPath": "assets/images/iconfont-list.png",
+        "selectedIconPath": "assets/images/iconfont-list-active.png",
+        "text": "工具"
+      },
+      {
+        "pagePath": "pages/home/find/index",
+        "iconPath": "assets/images/iconfont-addr-empty.png",
+        "selectedIconPath": "assets/images/iconfont-addr.png",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/home/user/index",
+        "iconPath": "assets/images/iconfont-user.png",
+        "selectedIconPath": "assets/images/iconfont-user-active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于您的位置展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

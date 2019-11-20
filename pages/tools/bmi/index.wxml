@@ -1,0 +1,73 @@
+<view>
+  <view class="bg-img bg-mask padding-tb-xl" style="background-image: url('https://cms.dsqhost.com/jsth/banners/index-05.png');height: 400rpx;">
+    <view class="padding-xs text-white">
+      <view class="padding-xs text-xl">
+        身体质量指数(BMI)
+      </view>
+      <view class="padding-xs">
+        BMI[Body Mass Index] 即BMI指数，也叫身体质量指数，是衡量是否肥胖和标准体重的重要指标。适用范围：18至65岁的人士。儿童、发育中的青少年、孕妇、乳母、老人及身型健硕的运动员除外。世界卫生组织认为BMI指数保持在22左右是比较理想的。
+      </view>
+    </view>
+  </view>
+  <form>
+
+    <!-- <view class="cu-form-group margin-top">
+      <view class="title">性别</view>
+      <picker bindchange="sexChange" value="{{sexIndex}}" range="{{sex}}">
+        <view class="picker">
+          {{sexIndex?sex[sexIndex]:'请选择'}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group margin-top">
+      <view class="title">一周运动频率</view>
+      <picker bindchange="yunChange" value="{{yunIndex}}" range="{{yun}}">
+        <view class="picker">
+          {{yunIndex?yun[yunIndex]:'请选择'}}
+        </view>
+      </picker>
+    </view> -->
+
+
+    <!-- <view class="cu-form-group margin-top">
+      <view class="title">年龄</view>
+      <input placeholder="请输入年龄（岁）" bindinput="ageChange" type="number"></input>
+    </view> -->
+    <view class="cu-form-group">
+      <view class="title">身高</view>
+      <input placeholder="请输入身高（CM，厘米）" bindinput="shengaoChange" type="number"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">体重</view>
+      <input placeholder="请输入体重（KG，公斤）" bindinput="tizhongChange" type="number"></input>
+    </view>
+
+    <view class="padding-xl">
+      <button class="cu-btn block bg-blue margin-tb-sm lg" bindtap="jsFunction" data-target="Modal">
+        <text decode="{{true}}"><text class="cuIcon-write"></text>&nbsp;&nbsp;计算</text>
+      </button>
+    </view>
+  </form>
+
+  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">计算结果</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+      <view class="solids-bottom padding-xs flex align-center">
+          <view class="flex-sub text-center">
+            <view class="solid-bottom text-xxl padding">
+              <text class="text-red">{{baseResult}}</text>
+            </view>
+            <view class="padding">身体质量指数(BMI)计算结果</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

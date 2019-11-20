@@ -1,0 +1,15 @@
+<view>
+
+  <view style="height: 340rpx;">
+    <image class="logo"  src="/assets/images/basicprofile.jpeg"></image>
+  </view>
+  <view class="about-item">
+    <text class="about-item-title">关于项目</text>
+    <text class="about-item-content">　健身，是有些人心中想了，但却没去做的事儿。</text>
+    <text class="about-item-content">　健身，是有些人心中想了，并一直坚持的事儿。</text>
+  </view>
+  <view class="about-item">
+    <text class="about-item-title">当前版本</text>
+    <text class="about-item-content ">　v2.0.7</text>
+  </view>
+</view>

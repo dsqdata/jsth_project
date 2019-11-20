@@ -1,0 +1,61 @@
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+<view class="container">
+  <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+    <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+      <view class="swiper-item">
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <view class="cu-list grid col-4 no-border">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<8*1}}" id="{{item.id}}" bindtap="clickItem">
+      <view class="flex justify-center">
+        <image src="{{item.icon}}" mode="aspectFill" style="width: 90rpx;height: 90rpx;">
+        </image>
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+
+  
+
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 知识解读
+    </view>
+    <view class="action">
+      <text style="font-size: 22rpx;color:#5bc0de" bindtap="openMore">更多</text>
+    </view>
+  </view>
+
+  <view class="cu-card article no-card" wx:if="{{zsList.length != 0}}" wx:for="{{zsList}}" wx:key id="{{item._id}}" bindtap="openZs">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">{{item.title}}</view>
+      </view>
+      <view class="content">
+        <image src="{{url}}{{item.sImg}}" mode="aspectFill"></image>
+        <view class="desc">
+          <view class="text-content">{{item.discription}}</view>
+          <view>
+            <view wx:for="{{item.tags}}" wx:key class="cu-tag bg-red light sm round">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-card article no-card" wx:if="{{zsList.length === 0}}">
+    <view class="flex solid-bottom padding justify-center" style="background-color: #fff;color:#a2a2a2;">
+      <view class="cu-item shadow">
+        <view class="content">
+          暂无数据
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

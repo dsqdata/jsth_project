@@ -1,0 +1,27 @@
+<view>
+  
+  <view class="cu-list grid col-4 no-border">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<8*1}}" id="{{item.id}}" bindtap="clickItem">
+      <view class="flex justify-center">
+        <image src="{{item.icon}}" mode="aspectFill" style="width: 90rpx;height: 90rpx;">
+        </image>
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+  
+  
+  <view class="cu-bar bg-white solid-bottom margin-top-xs">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 计算工具
+    </view>
+  </view>
+
+  <view class='nav-list bg-white'>
+    <view hover-class='none' bindtap="openUrl" data-url="../../tools/{{item.page}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+      <view class="nav-title">{{item.title}}</view>
+      <view class="nav-name">{{item.name}}</view>
+      <text class='cuIcon-{{item.icon}}'></text>
+    </view>
+  </view>
+</view>

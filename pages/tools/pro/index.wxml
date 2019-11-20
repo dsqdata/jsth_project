@@ -1,0 +1,72 @@
+<view>
+  <view class="bg-img bg-mask padding-tb-xl" style="background-image: url('https://cms.dsqhost.com/jsth/banners/index-01.jpg');height: 300rpx;">
+    <view class="padding-xs text-white">
+      <view class="padding-xs text-xl">
+        蛋白质计算器
+      </view>
+      <view class="padding-xs">
+        每公斤最少需要1克，1.5克是最标准的，青少年，运动员和孕妇等特殊需要的人应该达到2到3克，一般正常人需要大概70到150克之间。
+      </view>
+    </view>
+  </view>
+  <form>
+
+    <!-- <view class="cu-form-group margin-top">
+      <view class="title">性别</view>
+      <picker bindchange="sexChange" value="{{sexIndex}}" range="{{sex}}">
+        <view class="picker">
+          {{sexIndex?sex[sexIndex]:'请选择'}}
+        </view>
+      </picker>
+    </view> -->
+    <view class="cu-form-group margin-top">
+      <view class="title">体重</view>
+      <input placeholder="请输入体重（KG，公斤）" bindinput="tizhongChange" type="number"></input>
+    </view>
+
+    <view class="cu-form-group margin-top">
+      <view class="title">摄入目标</view>
+      <picker bindchange="yunChange" value="{{yunIndex}}" range="{{yun}}">
+        <view class="picker">
+          {{yunIndex?yun[yunIndex]:'请选择'}}
+        </view>
+      </picker>
+    </view>
+
+
+    <!-- <view class="cu-form-group margin-top">
+      <view class="title">年龄</view>
+      <input placeholder="请输入年龄（岁）" bindinput="ageChange" type="number"></input>
+    </view> -->
+
+
+    <view class="padding-xl">
+      <button class="cu-btn block bg-blue margin-tb-sm lg" bindtap="jsFunction" data-target="Modal">
+        <text decode="{{true}}"><text class="cuIcon-write"></text>&nbsp;&nbsp;计算</text>
+      </button>
+    </view>
+  </form>
+
+  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">计算结果</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+        <view class="solids-bottom padding-xs flex align-center">
+          <view class="flex-sub text-center">
+            <view class="solid-bottom text-xxl padding">
+              <text class="text-red">{{baseResultStart}}-{{baseResultEnd}}</text>
+              <text style="font-size:24rpx;"> 克</text>
+            </view>
+            <view class="padding">每日所需蛋白质计算结果</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

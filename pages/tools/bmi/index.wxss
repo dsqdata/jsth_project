@@ -1,0 +1,9 @@
+@import "/colorui/main.wxss";
+@import "/colorui/icon.wxss";
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+
+.solids-bottom::after {
+  border-bottom: 0rpx solid #eee;
+}

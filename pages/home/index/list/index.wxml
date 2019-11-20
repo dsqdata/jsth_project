@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="cu-card article no-card" wx:if="{{zsList.length != 0}}" wx:for="{{zsList}}" wx:key id="{{item._id}}" bindtap="openZs">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">{{item.title}}</view>
+      </view>
+      <view class="content">
+        <image src="{{url}}{{item.sImg}}" mode="aspectFill"></image>
+        <view class="desc">
+          <view class="text-content">{{item.discription}}</view>
+          <view>
+            <view wx:for="{{item.tags}}" wx:key class="cu-tag bg-red light sm round">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-card article no-card" wx:if="{{zsList.length === 0}}">
+    <view class="flex solid-bottom padding justify-center" style="background-color: #fff;color:#a2a2a2;">
+      <view class="cu-item shadow">
+        <view class="content">
+          暂无数据
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

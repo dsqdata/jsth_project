@@ -1,0 +1,13 @@
+.Scancode {
+  position: fixed;
+  bottom: 50rpx;
+  right: 50rpx;
+  display: flex;
+  padding: 60rpx;
+  justify-content: center;
+  width: 90rpx!important;
+  height: 90rpx!important;
+}
+.indexes {
+  position: relative;
+}

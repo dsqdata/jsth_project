@@ -1,0 +1,77 @@
+<view>
+  <view class="bg-img bg-mask padding-tb-xl" style="background-image: url('https://cms.dsqhost.com/jsth/banners/index-02.jpg');height: 490rpx;">
+    <view class="padding-xs text-white">
+      <view class="padding-xs text-xl">
+        基础代谢
+      </view>
+      <view class="padding-xs">
+        基础代谢率（BMR）是指人体在清醒而又极端安静的状态下，不受肌肉活动、环境温度、食物及精神紧张等影响时的能量代谢率。
+      </view>
+      <view class="padding-xs">
+        基础代谢率对减肥有非常大的影响，每天适量的运动有助于提高身体的基础代谢率，而节食(极端是绝食)会降低人的基础代谢率。通过性别，年龄，身高和体重能粗略计算基础代谢率。
+      </view>
+    </view>
+  </view>
+  <form>
+
+    <view class="cu-form-group margin-top">
+      <view class="title">性别</view>
+      <picker bindchange="sexChange" value="{{sexIndex}}" range="{{sex}}">
+        <view class="picker">
+          {{sexIndex?sex[sexIndex]:'请选择'}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group margin-top">
+      <view class="title">一周运动频率</view>
+      <picker bindchange="yunChange" value="{{yunIndex}}" range="{{yun}}">
+        <view class="picker">
+          {{yunIndex?yun[yunIndex]:'请选择'}}
+        </view>
+      </picker>
+    </view>
+
+
+    <view class="cu-form-group margin-top">
+      <view class="title">年龄</view>
+      <input placeholder="请输入年龄（岁）" bindinput="ageChange" type="number"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">身高</view>
+      <input placeholder="请输入身高（CM，厘米）" bindinput="shengaoChange" type="number"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">体重</view>
+      <input placeholder="请输入体重（KG，公斤）" bindinput="tizhongChange" type="number"></input>
+    </view>
+
+    <view class="padding-xl">
+      <button class="cu-btn block bg-blue margin-tb-sm lg" bindtap="jsFunction" data-target="Modal">
+        <text decode="{{true}}"><text class="cuIcon-write"></text>&nbsp;&nbsp;计算</text>
+      </button>
+    </view>
+  </form>
+
+  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">计算结果</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+      <view class="solids-bottom padding-xs flex align-center">
+          <view class="flex-sub text-center">
+            <view class="solid-bottom text-xxl padding">
+              <text class="text-red">{{baseResult}}</text>
+              <text style="font-size:24rpx;"> 大卡</text>
+            </view>
+            <view class="padding">基础代谢计算结果</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

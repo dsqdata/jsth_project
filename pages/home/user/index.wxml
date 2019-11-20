@@ -1,0 +1,33 @@
+<view class="container">
+  <view bindtap="bindViewTap" class="userinfo">
+  <view wx:if="{{!!!userInfo.avatarUrl}}" class="cu-avatar xl round bg-grey" bindtap="goLogin">
+    <text class="xl cuIcon-people"></text>
+  </view>
+  <view wx:if="{{!!userInfo.avatarUrl}}" class="cu-avatar xl round bg-grey" style="background-image:url({{ userInfo.avatarUrl }});"></view>
+    <text wx:if="{{!!!userInfo.nickName}}" class="userinfo-nickname" bindtap="goLogin" >登 录</text>
+    <text wx:if="{{!!userInfo.nickName}}" class="userinfo-nickname">{{ userInfo.nickName }}</text>
+  </view>
+
+  <!-- <view wx:if="{{!!userInfo.openid}}" class="cu-list menu sm-border">
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../../other/zsfx/index" open-type="navigate">
+        <text class="cuIcon-forward text-orange"></text>
+        <text class="text-grey">知识分享</text>
+      </navigator>
+    </view>
+  </view> -->
+  <view class="cu-list menu sm-border">
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../../about/index" open-type="navigate">
+        <text class="cuIcon-discoverfill text-orange"></text>
+        <text class="text-grey">关于我们</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="contact">
+        <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey">意见反馈</text>
+      </button>
+    </view>
+  </view>
+</view>

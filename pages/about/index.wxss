@@ -1,0 +1,30 @@
+.logo {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 100rpx;
+  width: 160rpx;
+  height: 160rpx;
+  margin-left: -80rpx;
+  border-radius: 160rpx;
+  animation: sway 10s ease-in-out infinite;
+  opacity: 0.95;
+}
+
+.about-item {
+  padding: 5px 15px;
+}
+
+.about-item-title {
+  color: #a1a1a1;
+  display: block;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.about-item-content {
+  margin-top: 5px;
+  font-size: 14px;
+  display: block;
+  text-indent: 20px;
+}
