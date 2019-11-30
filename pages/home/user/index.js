@@ -1,8 +1,9 @@
 const App = getApp()
-
+const sys = require('../../../utils/sys.js')
 Page({
   data: {
     userInfo: {},
+    showConfig: false,
     items: [
       {
         icon: '../../assets/images/iconfont-kefu.png',
@@ -29,7 +30,19 @@ Page({
     ]
   },
   onLoad() {
+    var _this = this
     this.getUserInfo()
+    if (!!App.globalData.userInfo) {
+      this.setData({
+        userInfo: App.globalData.userInfo
+      })
+      sys.postRequest('/api/v0/user/listUserShareConfig',
+        { openid: App.globalData.userInfo.openid }, function (res) {
+          if (res.data.length > 0) {
+            _this.setData({ showConfig: true })
+          }
+        }, function (res) { })
+    }
   },
   goLogin() {
     wx.navigateTo({

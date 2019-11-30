@@ -1,0 +1,92 @@
+<view class="cu-bar bg-white">
+    <view class="action">
+      <text class="cuIcon-title text-orange"></text> 健身日历
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow icon" bindtap="showModal" data-target="ChooseModal">
+        <text class="cuIcon-add"></text>
+      </button>
+    </view>
+  </view>
+<view class="bg-white padding-left padding-right" style="padding-bottom:60rpx;">
+  <calendar
+    calendarConfig="{{calendarConfig}}"
+    bind:onSwipe="onSwipe"
+    bind:onTapDay="onTapDay"
+    bind:afterTapDay="afterTapDay"
+    bind:whenChangeWeek="whenChangeWeek"
+    bind:whenChangeMonth="whenChangeMonth"
+    bind:afterCalendarRender="afterCalendarRender"
+  ></calendar>
+</view>
+
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 列表
+    </view>
+  </view>
+  <view class="cu-timeline flex justify-center" wx:if="{{!!!dayList || dayList.length === 0 }}">
+    <view class="cu-time" style="width: 190rpx;">暂无数据</view>
+  </view>
+  <view class="cu-list menu">
+    <view wx:for="{{dayList}}" wx:key class="cu-item">
+      <view class="content">
+        <text class="cuIcon-circlefill text-grey"></text>
+        <text class="text-grey">{{item.cData.year}}-{{item.cData.month}}-{{item.cData.day}} - {{item.cData.todoText}}</text>
+      </view>
+      <view class="action">
+        <view class="text-gray text-sm">
+          <text class="cuIcon-close margin-lr-xs" bindtap="deleteBt" id="{{item._id}}"> 删除 </text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+<!-- <view class='b cc wrap btn-wrap'>
+    <button
+      class='b cc btn btn-{{item.color}}'
+      wx:for="{{actionBtn}}"
+      wx:key="action"
+      data-action="{{item.action}}"
+      data-disable="{{item.disable}}"
+      bindtap="handleAction">{{item.text}}</button>
+</view> -->
+
+<!-- <view class="show-rst-wrap">
+  <view wx:if="{{rst}}" wx:for="{{rst}}" wx:key="*this" class="show-rst">{{item}}</view>
+  <view wx:if="{{rstStr}}" wx:key="*this" class="show-rst">{{rstStr}}</view>
+</view> -->
+
+<view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" catchtap>
+    <view class="cu-bar bg-white">
+      <view class="action text-blue" bindtap="hideModal">取消</view>
+      <view class="action text-green" bindtap="saveTodoLabels">确定</view>
+    </view>
+    <view class="grid col-3 padding-sm">
+      <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
+        <button class="cu-btn orange lg block {{item.checked?'bg-orange':'line-orange'}}" bindtap="ChooseCheckbox" data-value="{{item.value}}"> {{item.name}}
+          <view class="cu-tag sm round {{item.checked?'bg-white text-orange':'bg-orange'}}" wx:if="{{item.hot}}">HOT</view>
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='DialogModal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">确认</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+        您是否确认删除数据？
+      </view>
+      <view class="cu-bar bg-white">
+        <view class="action margin-0 flex-sub solid-left" bindtap="hideModal">取消</view>
+        <view class="action margin-0 flex-sub solid-left text-green" bindtap="deleteModal">确定</view>
+      </view>
+    </view>
+  </view>

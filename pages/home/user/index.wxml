@@ -8,14 +8,15 @@
     <text wx:if="{{!!userInfo.nickName}}" class="userinfo-nickname">{{ userInfo.nickName }}</text>
   </view>
 
-  <!-- <view wx:if="{{!!userInfo.openid}}" class="cu-list menu sm-border">
+  <view wx:if="{{!!showConfig}}" class="cu-list menu sm-border">
     <view class="cu-item arrow">
-      <navigator class="content" hover-class="none" url="../../other/zsfx/index" open-type="navigate">
+      <navigator class="content" hover-class="none" url="../../other/zsfx/add/index" open-type="navigate">
         <text class="cuIcon-forward text-orange"></text>
         <text class="text-grey">知识分享</text>
       </navigator>
     </view>
-  </view> -->
+  </view>
+
   <view class="cu-list menu sm-border">
     <view class="cu-item arrow">
       <navigator class="content" hover-class="none" url="../../about/index" open-type="navigate">

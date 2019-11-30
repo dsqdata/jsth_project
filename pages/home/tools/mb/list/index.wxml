@@ -1,0 +1,50 @@
+<view>
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-olive"></text> 目标体重列表
+    </view>
+    <view class="action">
+      <button wx:if="{{!!openid}}" class="cu-btn bg-olive shadow icon" bindtap="addBt">
+        <text class="cuIcon-add"></text>
+      </button>
+    </view>
+  </view>
+  <view class="cu-timeline" wx:if="{{!!!planList || planList.length === 0 }}">
+    <view class="cu-time" style="width: 190rpx;">暂无数据</view>
+  </view>
+  <view class="cu-timeline" wx:for="{{planList}}" wx:key wx:for-index='key'>
+    <view class="cu-time" style="width: 190rpx;">{{item.cDate}}</view>
+    <view class="cu-item text-olive">
+      <view class="content bg-{{item.color?item.color:'olive'}} shadow-blur">
+        {{item.cData}} kg
+        <div style="float: right;">
+          <button class="cu-btn bg-{{item.color?item.color:'olive'}} round sm" style="padding: 0 5rpx;" bindtap="deleteBt" id="{{item._id}}">
+            <text class="cuIcon-close"></text> 删除
+          </button>
+        </div>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-modal {{modalName=='DialogModal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">确认</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+        您是否确认删除目标？
+      </view>
+      <view class="cu-bar bg-white">
+        <view class="action margin-0 flex-sub solid-left" bindtap="hideModal">取消</view>
+        <view class="action margin-0 flex-sub solid-left text-green" bindtap="deleteModal">确定</view>
+      </view>
+    </view>
+  </view>
+  <view class='cu-load load-modal' wx:if="{{loadModal}}">
+    <image src='/assets/images/basicprofile.jpeg' class='png' mode='aspectFit'></image>
+    <view class='gray-text'>加载中...</view>
+  </view>
+</view>

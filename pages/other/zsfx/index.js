@@ -16,14 +16,14 @@ Page({
       this.setData({
         userInfo: app.globalData.userInfo
       })
-      sys.postRequest('/api/v0/user/listUserShareConfig',
-        { openid: app.globalData.userInfo.openid }, function (res) {
-          if (res.data.length>0){
-            _this.setData({ showConfig: true })
-          }
-        }, function (res) {})
+      // sys.postRequest('/api/v0/user/listUserShareConfig',
+      //   { openid: app.globalData.userInfo.openid }, function (res) {
+      //     if (res.data.length>0){
+      //       _this.setData({ showConfig: true })
+      //     }
+      //   }, function (res) {})
     }
-    this.loadList()
+    // this.loadList()
   },
   onReady() {
     wx.hideLoading()
@@ -34,8 +34,15 @@ Page({
       current: 1
     })
     this.onLoad(); //最好是只写需要刷新的区域的代码，onload也可，效率低，有点low
+  }, 
+  onShow: function () {
+    var _this = this
+    _this.setData({
+      current:1,
+      infoList:[]
+    })
+    this.loadList()
   },
-
   loadList() {
     var that = this;
     sys.postRequest('/api/v0/user/listUserShare', {
@@ -65,9 +72,12 @@ Page({
     this.onLoad(); //最好是只写需要刷新的区域的代码，onload也可，效率低，有点low
   },
   addBt() {
-    wx.navigateTo({
-      url: './add/index'
-    })
+    if (this.data.showConfig){
+      wx.navigateTo({
+        url: './add/index'
+      })
+    }
+   
   },
   onReachBottom() {
     // 下拉触底，先判断是否有请求正在进行中

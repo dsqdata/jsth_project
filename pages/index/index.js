@@ -34,7 +34,7 @@ Page({
                   function (res) { }
                 )
                 wx.reLaunch({
-                  url: '/pages/home/index/index',
+                  url: '/pages/start/index',
                 })
               }                
             })
@@ -84,7 +84,7 @@ Page({
         hasUserInfo: true
       })
       wx.reLaunch({
-        url: '/pages/home/index/index',
+        url: '/pages/start/index',
       })
     } else { //用户按了拒绝按钮
 

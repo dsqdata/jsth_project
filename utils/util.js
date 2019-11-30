@@ -17,6 +17,14 @@ const formatDate = date => {
   return [year, month, day].map(formatNumber).join('-')
 }
 
+const formatDateZh = date => {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+
+  return year + "年" + month + "月" + day + "日"
+}
+
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
@@ -24,5 +32,6 @@ const formatNumber = n => {
 
 module.exports = {
   formatTime: formatTime,
-  formatDate: formatDate
+  formatDate: formatDate,
+  formatDateZh: formatDateZh
 }

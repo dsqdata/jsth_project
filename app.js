@@ -36,6 +36,7 @@ App({
     // })
   },
   globalData: {
+    userLogin: false,
     userInfo: null,
     version: "2.0",
     shareProfile: '看看只是观众，动动才有收获' // 首页转发的时候话术

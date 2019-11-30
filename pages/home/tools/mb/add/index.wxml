@@ -1,0 +1,10 @@
+<view class="container" style="height:{{editorHeight}}px;">
+  <view class="cu-form-group margin-top">
+    <view class="title">目标体重(kg)</view>
+    <input placeholder="请输入目标体重(kg)" value="{{title}}" bindinput="titleChange" type="number"></input>
+  </view>
+
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue lg" bindtap="saveBt">保存</button>
+  </view>
+</view>

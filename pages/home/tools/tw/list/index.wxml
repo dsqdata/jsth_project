@@ -1,0 +1,77 @@
+<view>
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-olive"></text> 体围列表
+    </view>
+    <view class="action">
+      <button wx:if="{{!!openid}}" class="cu-btn bg-olive shadow icon" bindtap="addBt">
+        <text class="cuIcon-add"></text>
+      </button>
+    </view>
+  </view>
+  <view class="cu-timeline" wx:if="{{!!!planList || planList.length === 0 }}">
+    <view class="cu-time" style="width: 190rpx;">暂无数据</view>
+  </view>
+  <view class="cu-timeline" wx:for="{{planList}}" wx:key wx:for-index='key'>
+    <view class="cu-time" style="width: 190rpx;">{{item.cDate}}</view>
+    <view class="cu-item text-olive">
+
+      <view class="bg-gradual-blue radius text-white padding-top padding-bottom">
+        <view class="flex text-center">
+          <view class="flex-sub margin-xs">
+            <view>上臂围</view>
+            <view><text class="text-bold">{{item.cData.sbw!=null?item.cData.sbw:''}}</text> cm</view>
+          </view>
+          <view class="flex-sub margin-xs">
+            <view>胸围</view>
+            <view><text class="text-bold">{{item.cData.xw !=null?item.cData.xw:''}}</text> cm</view>
+          </view>
+          <view class="flex-sub margin-xs">
+            <view>腰围</view>
+            <view><text class="text-bold">{{item.cData.yw !=null?item.cData.yw:''}}</text> cm</view>
+          </view>
+
+        </view>
+        <view class="flex text-center">
+          <view class="flex-sub margin-xs">
+            <view>大腿围</view>
+            <view><text class="text-bold">{{item.cData.dtw !=null?item.cData.dtw:''}}</text> cm</view>
+          </view>
+          <view class="flex-sub margin-xs">
+            <view>小腿围</view>
+            <view><text class="text-bold">{{item.cData.xtw !=null?item.cData.xtw:''}}</text> cm</view>
+          </view>
+          <view class="flex-sub margin-xs">
+            <view>臀围</view>
+            <view><text class="text-bold">{{item.cData.tw !=null?item.cData.tw:''}}</text> cm</view>
+          </view>
+        </view>
+      </view>
+      <view class="flex justify-end">
+        <button class="cu-btn sm bg-white" bindtap="deleteBt" id="{{item._id}}">删除</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-modal {{modalName=='DialogModal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">确认</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+        您是否确认删除计划？
+      </view>
+      <view class="cu-bar bg-white">
+        <view class="action margin-0 flex-sub solid-left" bindtap="hideModal">取消</view>
+        <view class="action margin-0 flex-sub solid-left text-green" bindtap="deleteModal">确定</view>
+      </view>
+    </view>
+  </view>
+  <view class='cu-load load-modal' wx:if="{{loadModal}}">
+    <image src='/assets/images/basicprofile.jpeg' class='png' mode='aspectFit'></image>
+    <view class='gray-text'>加载中...</view>
+  </view>
+</view>

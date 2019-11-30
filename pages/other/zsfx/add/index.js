@@ -6,7 +6,7 @@ Page({
     imgList: [],
     detailPics: []
   },
-  onLoad(options) { },
+  onLoad(options) {},
   onReady() {
     wx.hideLoading()
   },
@@ -39,16 +39,16 @@ Page({
       // title: this.data.titleValue,
       content: this.data.textareaAValue,
       date: util.formatDate(new Date())
-    }, function (res) {
-      var pages = getCurrentPages(); //当前页面栈
-      if (pages.length > 1) {
-        var beforePage = pages[pages.length - 2]; //获取上一个页面实例对象
-        beforePage.changeData(); //触发父页面中的方法
-      }
+    }, function(res) {
+      // var pages = getCurrentPages(); //当前页面栈
+      // if (pages.length > 1) {
+      //   var beforePage = pages[pages.length - 2]; //获取上一个页面实例对象
+      //   beforePage.changeData(); //触发父页面中的方法
+      // }
       wx.navigateBack({
         delta: 1
       })
-    }, function (res) {
+    }, function(res) {
       sys.showToast("分享保存失败！")
     })
 
@@ -62,7 +62,6 @@ Page({
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], //从相册选择
       success: (res) => {
-
         that.uploadimg({
           url: sys.url + '/api/v0/upload/files?type=images', //这里是你图片上传的接口
           path: res.tempFilePaths, //这里是选取的图片的地址数组
@@ -105,7 +104,7 @@ Page({
     })
   },
 
-  uploadimg: function (data) {
+  uploadimg: function(data) {
     wx.showLoading({
       title: '上传中...',
       mask: true,

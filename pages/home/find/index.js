@@ -10,7 +10,29 @@ Page({
     controls: [],
     circles: [],//circles
   },
-
+  onShow: function () {
+    var _this = this
+    sys.postRequest('/api/v0/user/getUserLocal', { pageSize: 99999 }, function (res) {
+      var location = []
+      res.data.docs.forEach((item, index, arr) => { // item为arr的元素，index为下标，arr原数组
+        var marker = {
+          id: item._id,
+          latitude: item.wxUserInfo.location.latitude,
+          longitude: item.wxUserInfo.location.longitude,
+          width: 30,
+          height: 30,
+          iconPath: item.wxUserInfo.avatarUrl,
+          title: item.wxUserInfo.nickName
+        }
+        location.push(marker)
+      })
+      _this.setData({
+        markers: location
+      })
+    }, function (res) {
+      console.log(res)
+    })
+  },
   onLoad: function () {
     var _this = this;
     wx.getSystemInfo({
@@ -41,27 +63,6 @@ Page({
         })
       }
     })
-    sys.postRequest('/api/v0/user/getUserLocal', { pageSize: 99999 }, function (res) {
-      var location = []
-      res.data.docs.forEach((item, index, arr) => { // item为arr的元素，index为下标，arr原数组
-        var marker = {
-          id: item._id,
-          latitude: item.wxUserInfo.location.latitude,
-          longitude: item.wxUserInfo.location.longitude,
-          width: 30,
-          height: 30,
-          iconPath: item.wxUserInfo.avatarUrl,
-          title: item.wxUserInfo.nickName
-        }
-        location.push(marker)
-      })
-      _this.setData({
-        markers: location
-      })
-    }, function (res) {
-      console.log(res)
-    })
-
   },
 
   regionchange(e) {
@@ -70,7 +71,6 @@ Page({
 
   //点击merkers
   markertap(e) {
-    console.log(e.markerId)
     wx.navigateTo({
       url: '../../other/userinfo/index?id=' + e.markerId
     })
@@ -103,7 +103,5 @@ Page({
       })
       // }
     }
-
-  },
-
+  }
 })

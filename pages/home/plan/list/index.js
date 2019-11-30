@@ -37,7 +37,7 @@ Page({
         loadModal: false
       })
     }, function (res) { 
-      this.setData({
+      that.setData({
         loadModal: false
       })
     })

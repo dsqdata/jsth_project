@@ -1,0 +1,29 @@
+<view class="container" style="height:{{editorHeight}}px;">
+  <view class="cu-form-group">
+    <view class="title">上臂围(cm)</view>
+    <input placeholder="请输入上臂围(cm)" value="{{sbw}}" bindinput="sbwChange" type="number"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">胸围(cm)</view>
+    <input placeholder="请输入胸围(cm)" value="{{xw}}" bindinput="xwChange" type="number"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">腰围(cm)</view>
+    <input placeholder="请输入腰围(cm)" value="{{yw}}" bindinput="ywChange" type="number"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">大腿围(cm)</view>
+    <input placeholder="请输入大腿围(cm)" value="{{dtw}}" bindinput="dtwChange" type="number"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">小腿围(cm)</view>
+    <input placeholder="请输入小腿围(cm)" value="{{xtw}}" bindinput="xtwChange" type="number"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">臀围(cm)</view>
+    <input placeholder="请输入臀围(cm)" value="{{tw}}" bindinput="twChange" type="number"></input>
+  </view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue lg" bindtap="saveBt">保存</button>
+  </view>
+</view>

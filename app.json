@@ -1,6 +1,7 @@
 {
   "pages": [
     
+    "pages/start/index",
     "pages/home/index/index",
     "pages/other/zsfx/index",
     "pages/other/zsfx/add/index",
@@ -8,6 +9,12 @@
     "pages/home/index/dtl/index",
     "pages/home/index/list/index",
     "pages/home/tools/index",
+    "pages/home/tools/tz/add/index",
+    "pages/home/tools/tz/list/index",
+    "pages/home/tools/tw/add/index",
+    "pages/home/tools/tw/list/index",
+    "pages/home/tools/mb/add/index",
+    "pages/home/tools/mb/list/index",
     "pages/other/example/list/index",
     "pages/other/userinfo/index",
     "pages/other/action/list/index",
@@ -18,22 +25,22 @@
     "pages/home/plan/list/index",
     "pages/home/plan/add/index",
     "pages/home/user/index",
+    "pages/tools/calendar/index",
     "pages/tools/bmr/index",
     "pages/tools/bmi/index",
     "pages/tools/pro/index",
     "pages/tools/ehr/index",
-    "pages/about/index",
-    "pages/demo/logs/logs"
+    "pages/about/index"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#05a6f0",
+    "navigationBarBackgroundColor": "#0081ff",
     "backgroundTextStyle": "light",
     "navigationBarTitleText": "健身团钬",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#999999",
-    "selectedColor": "#479de6",
+    "selectedColor": "#0081ff",
     "borderStyle": "white",
     "backgroundColor": "#f7f8f9",
     "list": [
@@ -48,6 +55,12 @@
         "iconPath": "assets/images/iconfont-list.png",
         "selectedIconPath": "assets/images/iconfont-list-active.png",
         "text": "工具"
+      },
+      {
+        "pagePath": "pages/other/zsfx/index",
+        "iconPath": "assets/images/zsk.png",
+        "selectedIconPath": "assets/images/zsk_act.png",
+        "text": "知识"
       },
       {
         "pagePath": "pages/home/find/index",

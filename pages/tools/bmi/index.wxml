@@ -49,6 +49,12 @@
     </view>
   </form>
 
+  <view class="bg-white padding">
+    <view class="grid col-5 margin-bottom text-center" wx:for="{{flist}}" wx:key>
+      <view class="{{index%2==0?'bg-gray':''}}" wx:for="{{item}}" wx:key>{{item}}</view>
+    </view>
+  </view>
+
   <view class="cu-modal {{modalName=='Modal'?'show':''}}">
     <view class="cu-dialog">
       <view class="cu-bar bg-white justify-end">

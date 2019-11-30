@@ -16,7 +16,6 @@ Page({
 
   //事件处理函数
   swiperchange: function (e) {
-    //console.log(e.detail.current)
     this.setData({
       swiperCurrent: e.detail.current
     })
@@ -35,7 +34,6 @@ Page({
         id: e.id
       },
       success: function (res) {
-        console.log(res)
         that.setData({
           articlesDetail: res.data.data,
         });
@@ -43,22 +41,6 @@ Page({
         WxParse.wxParse('article', 'html', res.data.data.comments, that, 5);
       }
     })
-
-    // wx.request({
-    //   url: sys.url + '/api/v0/message/getList',
-    //   data: {
-    //     contentId: e.id,
-    //     pageSize: 999,
-    //     apiSource: "client"
-    //   },
-    //   success: function (res) {
-    //     console.log(res.data.docs)
-    //     // that.setData({
-    //     //   comments: res.data.docs,
-    //     //   commentsTotalItems: res.data.pageInfo.totalItems
-    //     // });
-    //   }
-    // })
   },
   onShareAppMessage: function () {
     return {

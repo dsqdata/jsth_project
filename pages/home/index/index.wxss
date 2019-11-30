@@ -79,3 +79,7 @@ page{
 .card-swiper {
   background-color: #f2f4f5;
 }
+
+.scrolltxt{padding:0 20rpx;background:rgb(236, 249, 255);}
+.marquee_box {position:relative;color:rgb(25, 137, 250);height:90rpx;display:block;overflow:hidden;} 
+.marquee_text {white-space: nowrap;position:absolute;top:0;font-size:14px;height:90rpx;line-height:90rpx;}

@@ -9,31 +9,7 @@
     <image src="https://cms.dsqhost.com/upload/images/ueditor/1193476933606838272.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
 
-  <view style="margin-top:0px;">
-    <view wx:for="{{infoList}}" wx:key class="cu-card dynamic no-card padding-top-xs">
-      <view class="cu-item shadow">
-        <view class="cu-list menu-avatar">
-          <view class="cu-item">
-            <view class="cu-avatar round lg" style="background-image:url({{item.avatarUrl}});"></view>
-            <view class="content flex-sub">
-              <view>{{item.nickName}}</view>
-              <view class="text-gray text-sm flex justify-between">
-                {{item.date}}
-              </view>
-            </view>
-          </view>
-
-        </view>
-        <view class="text-content" style="word-break: break-all;display: block;">
-          <text selectable='true'>{{item.title}}</text>
-          <text selectable='true'>{{item.content}}</text>
-        </view>
-        <view class="text-gray text-sm text-right padding">
-        </view>
-      </view>
-    </view>
-  </view>
-  <view wx:if="{{infoList.length === 0}}" class="flex padding justify-center text-gray">
+  <view class="flex padding justify-center text-gray">
     暂无数据
   </view>
   <view class="cu-tabbar-height"></view>

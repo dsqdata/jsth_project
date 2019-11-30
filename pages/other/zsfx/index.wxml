@@ -10,32 +10,63 @@
 
 <view style="margin-top:50px;">
   <view wx:for="{{infoList}}" wx:key class="cu-card dynamic no-card padding-top">
-    <view class="cu-item shadow">
-      <view class="cu-list menu-avatar">
-        <view class="cu-item">
-          <view class="cu-avatar round lg" style="background-image:url({{item.avatarUrl}});"></view>
-          <view class="content flex-sub">
-            <view>{{item.nickName}}</view>
-            <view class="text-gray text-sm flex justify-between">
-              {{item.date}}
-            </view>
+    <view class="cu-item shadow padding-top">
+
+      <view class="text-content padding-top" style="word-break: break-all;display: block;">
+        <!-- <text selectable='true'>{{item.title}}</text> -->
+        <text selectable='true' class="text-bold">{{item.content}}</text>
+      </view>
+      <view class="cu-form-group" wx:if="{{item.detailPics && item.detailPics.length == 1}}">
+        <view class="grid col-1 grid-square flex-sub">
+          <view class="bg-img" wx:for="{{item.detailPics}}" wx:for-item="subItem" wx:key="{{index}}" bindtap="ViewImage" data-url="{{url}}{{subItem}}" data-urls="{{item.detailPics}}">
+            <image src='{{url}}{{subItem}}' mode='aspectFill'></image>
           </view>
         </view>
-
       </view>
-      <view class="text-content" style="word-break: break-all;display: block;">
-        <!-- <text selectable='true'>{{item.title}}</text> -->
-        <text selectable='true'>{{item.content}}</text>
+      <view class="cu-form-group" wx:if="{{item.detailPics && item.detailPics.length == 2}}">
+        <view class="grid col-2 grid-square flex-sub">
+          <view class="bg-img" wx:for="{{item.detailPics}}" wx:for-item="subItem" wx:key="{{index}}" bindtap="ViewImage" data-url="{{url}}{{subItem}}" data-urls="{{item.detailPics}}">
+            <image src='{{url}}{{subItem}}' mode='aspectFill'></image>
+          </view>
+        </view>
       </view>
-      <view class="cu-form-group" wx:if="{{item.detailPics && item.detailPics.length != 0}}">
+      <view class="cu-form-group" wx:if="{{item.detailPics && item.detailPics.length == 3}}">
         <view class="grid col-3 grid-square flex-sub">
           <view class="bg-img" wx:for="{{item.detailPics}}" wx:for-item="subItem" wx:key="{{index}}" bindtap="ViewImage" data-url="{{url}}{{subItem}}" data-urls="{{item.detailPics}}">
             <image src='{{url}}{{subItem}}' mode='aspectFill'></image>
           </view>
         </view>
       </view>
-      <view class="text-gray text-sm text-right padding">
-        <text wx:if="{{userInfo.openid === item.openid || userInfo.openid === 'o8lb80M4YZVlIo2lxO9G9pqgWHxQ'}}" class="cuIcon-close margin-lr-xs" bindtap="deleteItem" data-sid="{{item._id}}"> 删除 </text>
+      <view class="cu-form-group" wx:if="{{item.detailPics && item.detailPics.length == 4}}">
+        <view class="grid col-2 grid-square flex-sub">
+          <view class="bg-img" wx:for="{{item.detailPics}}" wx:for-item="subItem" wx:key="{{index}}" bindtap="ViewImage" data-url="{{url}}{{subItem}}" data-urls="{{item.detailPics}}">
+            <image src='{{url}}{{subItem}}' mode='aspectFill'></image>
+          </view>
+        </view>
+      </view>
+      <view class="cu-form-group" wx:if="{{item.detailPics && item.detailPics.length > 4}}">
+        <view class="grid col-3 grid-square flex-sub">
+          <view class="bg-img" wx:for="{{item.detailPics}}" wx:for-item="subItem" wx:key="{{index}}" bindtap="ViewImage" data-url="{{url}}{{subItem}}" data-urls="{{item.detailPics}}">
+            <image src='{{url}}{{subItem}}' mode='aspectFill'></image>
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <!-- <view class="cu-avatar round lg" style="background-image:url({{item.avatarUrl}});"></view> -->
+          <view class="cu-avatar round lg" style="background-image:url('https://cms.dsqhost.com/upload/images/basicprofile.jpeg');"></view>
+          <view class="content flex-sub">
+            <!-- <view>{{item.nickName}}</view> -->
+            <view>健身团钬</view>
+            <view class="text-gray text-sm flex justify-between">
+              {{item.date}}
+              <view class="text-gray text-sm">
+                <text wx:if="{{userInfo.openid === item.openid || userInfo.openid === 'o8lb80M4YZVlIo2lxO9G9pqgWHxQ'}}" class="cuIcon-close margin-lr-xs" bindtap="deleteItem" data-sid="{{item._id}}"> 删除 </text>
+              </view>
+            </view>
+          </view>
+        </view>
       </view>
     </view>
   </view>
@@ -44,9 +75,9 @@
 <view wx:if="{{infoList.length === 0}}" class="flex padding justify-center text-gray">
   暂无数据
 </view>
-<button wx:if="{{!!showConfig}}" class="Scancode cu-btn bg-gradual-green shadow-blur round icon" bindtap="addBt">
+<!-- <button wx:if="{{!!showConfig}}" class="Scancode cu-btn bg-gradual-green shadow-blur round icon" bindtap="addBt">
   <text class="cuIcon-add"></text>
-</button>
+</button> -->
 
 <view class='cu-load load-modal' wx:if="{{loadModal}}">
   <image src='/assets/images/basicprofile.jpeg' class='png' mode='aspectFit'></image>
